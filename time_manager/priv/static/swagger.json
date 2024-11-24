@@ -1,0 +1,1542 @@
+{
+  "info": {
+    "version": "1.0",
+    "description": "API pour l'application Gotham Time Manager",
+    "title": "Gotham T.M API",
+    "contact": {
+      "name": "Gotham Corporation",
+      "url": "https://www.gothamcorp.com",
+      "email": ""
+    }
+  },
+  "definitions": {
+    "Task": {
+      "description": "Une tâche assignée à un utilisateur",
+      "example": {
+        "description": "Préparer le rapport annuel",
+        "id": 1,
+        "inserted_at": "2023-01-01T12:00:00Z",
+        "title": "Préparer le rapport",
+        "updated_at": "2023-01-02T12:00:00Z",
+        "user_id": 42
+      },
+      "properties": {
+        "description": {
+          "description": "Description de la tâche",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID de la tâche",
+          "type": "integer"
+        },
+        "inserted_at": {
+          "description": "Date de création",
+          "format": "date-time",
+          "type": "string"
+        },
+        "title": {
+          "description": "Titre de la tâche",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Date de mise à jour",
+          "format": "date-time",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "ID de l'utilisateur assigné",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "user_id",
+        "title",
+        "id"
+      ],
+      "title": "Tâche",
+      "type": "object"
+    },
+    "ChangePasswordParams": {
+      "description": "Paramètres pour changer le mot de passe",
+      "properties": {
+        "current_password": {
+          "description": "Mot de passe actuel",
+          "type": "string"
+        },
+        "new_password": {
+          "description": "Nouveau mot de passe",
+          "type": "string"
+        }
+      },
+      "required": [
+        "current_password",
+        "new_password",
+        "new_password",
+        "current_password"
+      ],
+      "title": "Paramètres de changement de mot de passe",
+      "type": "object"
+    },
+    "LoginParams": {
+      "description": "Paramètres requis pour la connexion",
+      "properties": {
+        "email": {
+          "description": "Adresse email",
+          "type": "string"
+        },
+        "password": {
+          "description": "Mot de passe",
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "password",
+        "password",
+        "email"
+      ],
+      "title": "Paramètres de connexion",
+      "type": "object"
+    },
+    "MessageResponse": {
+      "description": "Message standard pour les réponses de succès ou d'erreur",
+      "properties": {
+        "message": {
+          "description": "Message de confirmation",
+          "type": "string"
+        }
+      },
+      "title": "Réponse standard",
+      "type": "object"
+    },
+    "CreateUserParams": {
+      "description": "Paramètres requis pour créer un utilisateur",
+      "properties": {
+        "email": {
+          "description": "Adresse email",
+          "type": "string"
+        },
+        "password": {
+          "description": "Mot de passe",
+          "type": "string"
+        },
+        "username": {
+          "description": "Nom d'utilisateur",
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "email",
+        "password",
+        "password",
+        "email",
+        "username"
+      ],
+      "title": "Paramètres de création d'utilisateur",
+      "type": "object"
+    },
+    "User": {
+      "description": "Un utilisateur de l'application",
+      "example": {
+        "email": "johndoe@example.com",
+        "id": 1,
+        "inserted_at": "2023-01-01T12:00:00Z",
+        "updated_at": "2023-01-02T12:00:00Z",
+        "username": "johndoe"
+      },
+      "properties": {
+        "email": {
+          "description": "Adresse email",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID de l'utilisateur",
+          "type": "integer"
+        },
+        "inserted_at": {
+          "description": "Date de création",
+          "format": "date-time",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Date de mise à jour",
+          "format": "date-time",
+          "type": "string"
+        },
+        "username": {
+          "description": "Nom d'utilisateur",
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "username",
+        "id"
+      ],
+      "title": "Utilisateur",
+      "type": "object"
+    },
+    "UpdateUserParams": {
+      "description": "Paramètres pour mettre à jour un utilisateur existant",
+      "properties": {
+        "email": {
+          "description": "Adresse email",
+          "type": "string"
+        },
+        "password": {
+          "description": "Mot de passe",
+          "type": "string"
+        },
+        "username": {
+          "description": "Nom d'utilisateur",
+          "type": "string"
+        }
+      },
+      "title": "Paramètres de mise à jour d'utilisateur",
+      "type": "object"
+    },
+    "CreateTaskParams": {
+      "description": "Paramètres requis pour créer une tâche",
+      "properties": {
+        "description": {
+          "description": "Description de la tâche",
+          "type": "string"
+        },
+        "title": {
+          "description": "Titre de la tâche",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "title"
+      ],
+      "title": "Paramètres de création de tâche",
+      "type": "object"
+    },
+    "UpdateTaskParams": {
+      "description": "Paramètres pour mettre à jour une tâche existante",
+      "properties": {
+        "description": {
+          "description": "Description de la tâche",
+          "type": "string"
+        },
+        "title": {
+          "description": "Titre de la tâche",
+          "type": "string"
+        }
+      },
+      "title": "Paramètres de mise à jour de tâche",
+      "type": "object"
+    },
+    "CreateTeamParams": {
+      "description": "Paramètres requis pour créer une équipe",
+      "properties": {
+        "manager_id": {
+          "description": "ID du manager",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Nom de l'équipe",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "manager_id",
+        "manager_id",
+        "name"
+      ],
+      "title": "Paramètres de création d'équipe",
+      "type": "object"
+    },
+    "Team": {
+      "description": "Une équipe de l'application",
+      "example": {
+        "id": 1,
+        "inserted_at": "2023-01-01T12:00:00Z",
+        "manager_id": 42,
+        "name": "Équipe Alpha",
+        "updated_at": "2023-01-02T12:00:00Z",
+        "users": [
+          {
+            "email": "johndoe@example.com",
+            "id": 1,
+            "username": "johndoe"
+          },
+          {
+            "email": "janedoe@example.com",
+            "id": 2,
+            "username": "janedoe"
+          }
+        ]
+      },
+      "properties": {
+        "id": {
+          "description": "ID de l'équipe",
+          "type": "integer"
+        },
+        "inserted_at": {
+          "description": "Date de création",
+          "format": "date-time",
+          "type": "string"
+        },
+        "manager_id": {
+          "description": "ID du manager",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Nom de l'équipe",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Date de mise à jour",
+          "format": "date-time",
+          "type": "string"
+        },
+        "users": {
+          "description": "Liste des utilisateurs dans l'équipe",
+          "items": {
+            "$ref": "#/definitions/User"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "manager_id",
+        "name",
+        "id"
+      ],
+      "title": "Équipe",
+      "type": "object"
+    },
+    "UpdateTeamParams": {
+      "description": "Paramètres pour mettre à jour une équipe existante",
+      "properties": {
+        "manager_id": {
+          "description": "ID du manager",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Nom de l'équipe",
+          "type": "string"
+        }
+      },
+      "title": "Paramètres de mise à jour d'équipe",
+      "type": "object"
+    },
+    "CreateWorkingTimeParams": {
+      "description": "Paramètres requis pour créer un temps de travail",
+      "properties": {
+        "end_time": {
+          "description": "Heure de fin",
+          "format": "date-time",
+          "type": "string"
+        },
+        "start_time": {
+          "description": "Heure de début",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start_time",
+        "end_time",
+        "end_time",
+        "start_time"
+      ],
+      "title": "Paramètres de création de temps de travail",
+      "type": "object"
+    },
+    "UpdateWorkingTimeParams": {
+      "description": "Paramètres pour mettre à jour un temps de travail existant",
+      "properties": {
+        "end_time": {
+          "description": "Heure de fin",
+          "format": "date-time",
+          "type": "string"
+        },
+        "start_time": {
+          "description": "Heure de début",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "title": "Paramètres de mise à jour de temps de travail",
+      "type": "object"
+    },
+    "WorkingTime": {
+      "description": "Un enregistrement du temps de travail d'un utilisateur",
+      "example": {
+        "end_time": "2023-01-01T17:00:00Z",
+        "id": 1,
+        "inserted_at": "2023-01-01T09:00:00Z",
+        "start_time": "2023-01-01T09:00:00Z",
+        "updated_at": "2023-01-01T17:00:00Z",
+        "user_id": 42
+      },
+      "properties": {
+        "end_time": {
+          "description": "Heure de fin",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID du temps de travail",
+          "type": "integer"
+        },
+        "inserted_at": {
+          "description": "Date de création",
+          "format": "date-time",
+          "type": "string"
+        },
+        "start_time": {
+          "description": "Heure de début",
+          "format": "date-time",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Date de mise à jour",
+          "format": "date-time",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "ID de l'utilisateur",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "user_id",
+        "end_time",
+        "start_time",
+        "id"
+      ],
+      "title": "Temps de Travail",
+      "type": "object"
+    },
+    "Clock": {
+      "description": "Enregistrement des entrées et sorties d'un utilisateur",
+      "example": {
+        "id": 1,
+        "inserted_at": "2023-01-01T09:00:00Z",
+        "status": "IN",
+        "time": "2023-01-01T09:00:00Z",
+        "updated_at": "2023-01-01T09:00:00Z",
+        "user_id": 42
+      },
+      "properties": {
+        "id": {
+          "description": "ID de l'horloge",
+          "type": "integer"
+        },
+        "inserted_at": {
+          "description": "Date de création",
+          "format": "date-time",
+          "type": "string"
+        },
+        "status": {
+          "description": "Statut de l'horloge ('IN' ou 'OUT')",
+          "enum": [
+            "IN",
+            "OUT"
+          ],
+          "type": "string"
+        },
+        "time": {
+          "description": "Horodatage de l'événement",
+          "format": "date-time",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Date de mise à jour",
+          "format": "date-time",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "ID de l'utilisateur",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "user_id",
+        "time",
+        "status",
+        "id"
+      ],
+      "title": "Horloge",
+      "type": "object"
+    }
+  },
+  "swagger": "2.0",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/api/tasks": {
+      "get": {
+        "description": "Récupère la liste de toutes les tâches, optionnellement filtrée par utilisateur",
+        "operationId": "TimeManagerWeb.TaskController.index",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur pour filtrer les tâches",
+            "in": "query",
+            "name": "user_id",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Liste des tâches",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Task"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Liste des tâches",
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/api/tasks/{id}": {
+      "get": {
+        "description": "Récupère une tâche spécifique par son ID",
+        "operationId": "TimeManagerWeb.TaskController.show",
+        "parameters": [
+          {
+            "description": "ID de la tâche",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Tâche trouvée",
+            "schema": {
+              "$ref": "#/definitions/Task"
+            }
+          },
+          "404": {
+            "description": "Tâche non trouvée"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Récupérer une tâche spécifique",
+        "tags": [
+          "Task"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Met à jour une tâche existante par son ID",
+        "operationId": "TimeManagerWeb.TaskController.update",
+        "parameters": [
+          {
+            "description": "ID de la tâche",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Paramètres pour mettre à jour une tâche",
+            "in": "body",
+            "name": "task",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateTaskParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Tâche mise à jour avec succès",
+            "schema": {
+              "$ref": "#/definitions/Task"
+            }
+          },
+          "404": {
+            "description": "Tâche non trouvée"
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Mettre à jour une tâche existante",
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/api/tasks/{user_id}": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Crée une nouvelle tâche pour un utilisateur spécifique",
+        "operationId": "TimeManagerWeb.TaskController.create",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur",
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Paramètres pour créer une tâche",
+            "in": "body",
+            "name": "task",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateTaskParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Tâche créée avec succès",
+            "schema": {
+              "$ref": "#/definitions/Task"
+            }
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Créer une nouvelle tâche",
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/auth/change_password": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Permet à un utilisateur de changer son mot de passe",
+        "operationId": "TimeManagerWeb.AuthController.change_password",
+        "parameters": [
+          {
+            "description": "Paramètres pour changer le mot de passe",
+            "in": "body",
+            "name": "password",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChangePasswordParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Mot de passe changé avec succès",
+            "schema": {
+              "$ref": "#/definitions/MessageResponse"
+            }
+          },
+          "422": {
+            "description": "Erreur de validation"
+          }
+        },
+        "summary": "Changer le mot de passe",
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Connecte un utilisateur avec son adresse email et son mot de passe",
+        "operationId": "TimeManagerWeb.AuthController.login",
+        "parameters": [
+          {
+            "description": "Paramètres pour la connexion",
+            "in": "body",
+            "name": "login",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Connexion réussie",
+            "schema": {
+              "$ref": "#/definitions/MessageResponse"
+            }
+          },
+          "401": {
+            "description": "Échec de la connexion"
+          }
+        },
+        "summary": "Connexion utilisateur",
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "description": "Déconnecte un utilisateur en révoquant son token JWT",
+        "operationId": "TimeManagerWeb.AuthController.logout",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Déconnexion réussie",
+            "schema": {
+              "$ref": "#/definitions/MessageResponse"
+            }
+          }
+        },
+        "summary": "Déconnexion",
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Crée un nouvel utilisateur avec un email, un mot de passe et un nom d'utilisateur",
+        "operationId": "TimeManagerWeb.AuthController.register",
+        "parameters": [
+          {
+            "description": "Paramètres pour l'enregistrement",
+            "in": "body",
+            "name": "user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUserParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Utilisateur créé avec succès",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "summary": "Enregistrement d'un nouvel utilisateur",
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/clocks/{user_id}": {
+      "get": {
+        "description": "Récupère la liste des horloges pour un utilisateur spécifique",
+        "operationId": "TimeManagerWeb.ClockController.index",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur",
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Liste des horloges",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Clock"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "Utilisateur non trouvé"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Liste des horloges d'un utilisateur",
+        "tags": [
+          "Clock"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Crée une nouvelle horloge (entrée ou sortie) pour un utilisateur spécifique",
+        "operationId": "TimeManagerWeb.ClockController.create",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur",
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Horloge créée avec succès",
+            "schema": {
+              "$ref": "#/definitions/Clock"
+            }
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Créer une nouvelle horloge pour un utilisateur",
+        "tags": [
+          "Clock"
+        ]
+      }
+    },
+    "/me": {
+      "get": {
+        "description": "Récupère les informations de l'utilisateur actuellement connecté via JWT",
+        "operationId": "TimeManagerWeb.UserController.get_me",
+        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Informations de l'utilisateur",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "401": {
+            "description": "Non authentifié"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Obtenir les informations de l'utilisateur connecté",
+        "tags": [
+          "User"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Met à jour les informations de l'utilisateur actuellement connecté via JWT",
+        "operationId": "TimeManagerWeb.UserController.update_me",
+        "parameters": [
+          {
+            "description": "Paramètres pour mettre à jour l'utilisateur",
+            "in": "body",
+            "name": "user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateUserParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Utilisateur mis à jour avec succès",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Mettre à jour les informations de l'utilisateur connecté",
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/teams": {
+      "get": {
+        "description": "Récupère la liste de toutes les équipes, optionnellement filtrée par manager",
+        "operationId": "TimeManagerWeb.TeamController.index",
+        "parameters": [
+          {
+            "description": "ID du manager pour filtrer les équipes",
+            "in": "query",
+            "name": "manager_id",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Liste des équipes",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Team"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Liste des équipes",
+        "tags": [
+          "Team"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Crée une nouvelle équipe avec un nom et un manager",
+        "operationId": "TimeManagerWeb.TeamController.create",
+        "parameters": [
+          {
+            "description": "Paramètres pour créer une équipe",
+            "in": "body",
+            "name": "team",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateTeamParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Équipe créée avec succès",
+            "schema": {
+              "$ref": "#/definitions/Team"
+            }
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Créer une nouvelle équipe",
+        "tags": [
+          "Team"
+        ]
+      }
+    },
+    "/teams/{id}": {
+      "get": {
+        "description": "Récupère une équipe spécifique par son ID",
+        "operationId": "TimeManagerWeb.TeamController.show",
+        "parameters": [
+          {
+            "description": "ID de l'équipe",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Équipe trouvée",
+            "schema": {
+              "$ref": "#/definitions/Team"
+            }
+          },
+          "404": {
+            "description": "Équipe non trouvée"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Récupérer une équipe spécifique",
+        "tags": [
+          "Team"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Met à jour une équipe existante par son ID",
+        "operationId": "TimeManagerWeb.TeamController.update",
+        "parameters": [
+          {
+            "description": "ID de l'équipe",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Paramètres pour mettre à jour une équipe",
+            "in": "body",
+            "name": "team",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateTeamParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Équipe mise à jour avec succès",
+            "schema": {
+              "$ref": "#/definitions/Team"
+            }
+          },
+          "404": {
+            "description": "Équipe non trouvée"
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Mettre à jour une équipe existante",
+        "tags": [
+          "Team"
+        ]
+      }
+    },
+    "/users": {
+      "get": {
+        "description": "Récupère la liste de tous les utilisateurs",
+        "operationId": "TimeManagerWeb.UserController.index",
+        "parameters": [
+          {
+            "description": "Filtrer par certains critères",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Liste des utilisateurs",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/User"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Liste des utilisateurs",
+        "tags": [
+          "User"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Crée un nouvel utilisateur avec un nom d'utilisateur, un email et un mot de passe",
+        "operationId": "TimeManagerWeb.UserController.create",
+        "parameters": [
+          {
+            "description": "Paramètres pour créer un utilisateur",
+            "in": "body",
+            "name": "user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUserParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Utilisateur créé avec succès",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Créer un nouvel utilisateur",
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/users/{id}": {
+      "delete": {
+        "description": "Supprime un utilisateur par son ID",
+        "operationId": "TimeManagerWeb.UserController.delete",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Utilisateur supprimé avec succès"
+          },
+          "404": {
+            "description": "Utilisateur non trouvé"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Supprimer un utilisateur",
+        "tags": [
+          "User"
+        ]
+      },
+      "get": {
+        "description": "Récupère un utilisateur spécifique par son ID",
+        "operationId": "TimeManagerWeb.UserController.show",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Utilisateur trouvé",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "404": {
+            "description": "Utilisateur non trouvé"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Récupérer un utilisateur spécifique",
+        "tags": [
+          "User"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Met à jour un utilisateur existant par son ID",
+        "operationId": "TimeManagerWeb.UserController.update",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Paramètres pour mettre à jour un utilisateur",
+            "in": "body",
+            "name": "user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateUserParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Utilisateur mis à jour avec succès",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "404": {
+            "description": "Utilisateur non trouvé"
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Mettre à jour un utilisateur existant",
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/users/{id}/photo": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "description": "Uploader une photo de profil pour un utilisateur",
+        "operationId": "TimeManagerWeb.UserController.upload_photo",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Fichier image à uploader (JPEG/PNG)",
+            "in": "formData",
+            "name": "photo",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Photo uploadée avec succès"
+          },
+          "400": {
+            "description": "Erreur de validation"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Uploader une photo de profil",
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/workingtime/{id}": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Met à jour un temps de travail existant par son ID",
+        "operationId": "TimeManagerWeb.WorkingTimeController.update",
+        "parameters": [
+          {
+            "description": "ID du temps de travail",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Paramètres pour mettre à jour un temps de travail",
+            "in": "body",
+            "name": "working_time",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateWorkingTimeParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Temps de travail mis à jour avec succès",
+            "schema": {
+              "$ref": "#/definitions/WorkingTime"
+            }
+          },
+          "404": {
+            "description": "Temps de travail non trouvé"
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "summary": "Mettre à jour un temps de travail existant",
+        "tags": [
+          "WorkingTime"
+        ]
+      }
+    },
+    "/workingtime/{user_id}": {
+      "get": {
+        "description": "Récupère la liste des temps de travail pour un utilisateur spécifique, optionnellement filtrée par date de début et de fin",
+        "operationId": "TimeManagerWeb.WorkingTimeController.index",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur",
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Date de début au format ISO8601",
+            "format": "date-time",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Date de fin au format ISO8601",
+            "format": "date-time",
+            "in": "query",
+            "name": "end_time",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Liste des temps de travail",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/WorkingTime"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Liste des temps de travail d'un utilisateur",
+        "tags": [
+          "WorkingTime"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Crée un nouveau temps de travail pour un utilisateur spécifique",
+        "operationId": "TimeManagerWeb.WorkingTimeController.create",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur",
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Paramètres pour créer un temps de travail",
+            "in": "body",
+            "name": "working_time",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateWorkingTimeParams"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Temps de travail créé avec succès",
+            "schema": {
+              "$ref": "#/definitions/WorkingTime"
+            }
+          },
+          "422": {
+            "description": "Paramètres invalides"
+          }
+        },
+        "summary": "Créer un nouveau temps de travail",
+        "tags": [
+          "WorkingTime"
+        ]
+      }
+    },
+    "/workingtime/{user_id}/{id}": {
+      "get": {
+        "description": "Récupère un temps de travail spécifique par son ID pour un utilisateur donné",
+        "operationId": "TimeManagerWeb.WorkingTimeController.show",
+        "parameters": [
+          {
+            "description": "ID de l'utilisateur",
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "ID du temps de travail",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Temps de travail trouvé",
+            "schema": {
+              "$ref": "#/definitions/WorkingTime"
+            }
+          },
+          "404": {
+            "description": "Temps de travail non trouvé"
+          }
+        },
+        "summary": "Récupérer un temps de travail spécifique",
+        "tags": [
+          "WorkingTime"
+        ]
+      }
+    }
+  },
+  "basePath": "/api",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "BearerAuth": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "description": "JWT Authorization header using the Bearer scheme. Example: 'Bearer {token}'"
+    }
+  }
+}

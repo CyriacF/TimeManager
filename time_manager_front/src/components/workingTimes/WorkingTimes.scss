@@ -1,0 +1,125 @@
+.calendar{
+  background: var(--surface-card);
+  padding: 0.5rem;
+height: 100%;
+  border-radius: var(--content-border-radius);
+  cursor: default;
+}
+
+.vuecal__event.pointage {
+  background-color: var(--p-primary-color);
+  border: 1px solid rgb(235, 82, 82);
+  color: #fff;
+  border-radius: var(--content-border-radius);
+}
+.weekday-label {
+  color: var(--primary-color);
+}
+.vuecal__title {
+  color: var(--p-text-muted-color);
+  background: #000;
+}
+.vuecal__arrow {
+  padding: 0 0.5rem 0 0.5rem;
+  color: var(--p-text-muted-color);
+  background: #000;
+  border-radius: var(--content-border-radius);
+}
+.vuecal__cell--selected {
+  background: var(--p-primary-color);
+  .vuecal__cell-content {
+    color: black;
+  }
+}
+.vuecal__cell--today {
+  background: rgba(38, 192, 109, 0.32);
+  .vuecal__cell-content {
+    color: white;
+  }
+}
+.vuecal__cell--current{
+  background: rgba(38, 192, 109, 0.32);
+
+}
+.vuecal__cell-content {
+  color: white;
+}
+
+.CP {
+  background-color: rgba(255, 102, 102, 0.35);
+  border: solid rgba(255, 102, 102, 0.5);
+  border-width: 2px 0;
+  color: #fff;
+}
+
+.CPSUP {
+  background-color: rgba(102, 255, 102, 0.35);
+  border: solid rgba(102, 255, 102, 0.5);
+  border-width: 2px 0;
+  color: #000;
+}
+
+.CPSUPAPP {
+  background-color: rgba(102, 178, 255, 0.35);
+  border: solid rgba(102, 178, 255, 0.5);
+  border-width: 2px 0;
+  color: #000;
+}
+
+.ABEventFamily {
+  background-color: rgba(255, 204, 102, 0.35);
+  border: solid rgba(255, 204, 102, 0.5);
+  border-width: 2px 0;
+  color: #000;
+}
+
+.CParental {
+  background-color: rgba(178, 102, 255, 0.35);
+  border: solid rgba(178, 102, 255, 0.5);
+  border-width: 2px 0;
+  color: #fff;
+}
+
+.MAT {
+  background-color: rgba(255, 182, 193, 0.35);
+  border: solid rgba(255, 182, 193, 0.5);
+  border-width: 2px 0;
+  color: #000;
+}
+
+.PAT {
+  background-color: rgba(102, 255, 255, 0.35);
+  border: solid rgba(102, 255, 255, 0.5);
+  border-width: 2px 0;
+  color: #000;
+}
+
+.AcciTrav {
+  background-color: rgba(255, 140, 0, 0.35);
+  border: solid rgba(255, 140, 0, 0.5);
+  border-width: 2px 0;
+  color: #000;
+}
+
+.Maladie {
+  background-color: rgba(192, 192, 192, 0.35);
+  border: solid rgba(192, 192, 192, 0.5);
+  border-width: 2px 0;
+  color: #000;
+}
+
+.CSS {
+  background-color: rgba(64, 64, 64, 0.35);
+  border: solid rgba(64, 64, 64, 0.5);
+  border-width: 2px 0;
+  color: #fff;
+}
+
+.Travail {
+  background-color: rgba(255, 255, 153, 0.35);
+  border: solid rgba(255, 255, 153, 0.5);
+  border-width: 2px 0;
+  color: #000;
+}
+
+

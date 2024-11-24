@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  phoenix:
+    image: sirihackfr/timemanager:phoenix-latest
+    platform: linux/amd64
+    environment:
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: time_manager_dev
+      PGPORT: 5432
+      PGHOST: db
+      MIX_ENV: prod
+      DATABASE_URL: ecto://postgres:postgres@db:5432/time_manager_dev
+    ports:
+      - '4000:4000'
+    depends_on:
+      - db
+
+  nginx:
+    image: sirihackfr/timemanager:nginx-latest
+    platform: linux/amd64
+    environment:
+      - VUE_APP_BASE_URL=http://15.188.55.199:4000
+    ports:
+      - '80:80'
+    depends_on:
+      - phoenix
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+# Define the volumes.
+volumes:
+  pgdata:

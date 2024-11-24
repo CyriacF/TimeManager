@@ -1,0 +1,40 @@
+services:
+  phoenix:
+    build:
+      context: time_manager
+    environment:
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: time_manager_dev
+      PGPORT: 5432
+      PGHOST: db
+      MIX_ENV: dev
+      DATABASE_URL: ecto://postgres:postgres@db:5432/time_manager_dev
+      TZ: Europe/Paris
+    ports:
+      - '4000:4000'
+    depends_on:
+      - db
+  nginx:
+    build:
+      context: time_manager_front
+    ports:
+      - '80:80'
+    depends_on:
+      - phoenix
+
+  db:
+    image: postgres:17
+    ports:
+      - '5431:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+      TZ: Europe/Paris
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+# Define the volumes.
+volumes:
+  pgdata:

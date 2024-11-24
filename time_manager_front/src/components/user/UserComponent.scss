@@ -1,0 +1,32 @@
+@import '@/library';
+.widget {
+  position: relative;
+  background: rgba($SECONDARY_COLOR, 0.5);
+  border-radius: $BORDER_RADIUS_L;
+  padding:  0 $PADDING_S;
+  max-width: 100%;
+
+}
+label {
+  display: block;
+  margin: 10px 0;
+}
+input {
+  margin-left: 10px;
+}
+button {
+  margin-top: 10px;
+}
+.user-info {
+  position: relative;
+}
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ffcc00;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}

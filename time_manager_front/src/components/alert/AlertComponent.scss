@@ -1,0 +1,108 @@
+.widget {
+    border-radius: 5px;
+    background-color: var(--surface-card); /* Background color black */
+    color: #fff; /* Text color white */
+    width: 100%; /* Prendre toute la largeur */
+    height: 100%; /* Prendre toute la hauteur */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .user-info {
+    margin-top: 20px;
+  }
+  
+  .team-members {
+    margin-top: 20px;
+  }
+  
+  .team-member-card {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #e31010;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #333; /* Dark background */
+    color: #fff; /* Text color white */
+  }
+  
+  .team-member-card:hover {
+    background-color: #444; /* Slightly lighter background on hover */
+  }
+  
+  .badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #ff0000; /* Red background */
+    color: #fff; /* Text color white */
+    border-radius: 3px;
+    margin-top: 10px;
+  }
+  
+  .alert-container {
+    max-height: 300px; /* Fixed height for alert container */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .alert-block {
+    padding: 10px;
+    border: 2px solid #ff0000; /* Red border */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #333; /* Dark background */
+    color: #fff; /* Text color white */
+  }
+  
+  .alert-block p {
+    margin: 5px 0;
+  }
+  
+  .alert-bubble {
+    position: absolute;
+  bottom:0;
+    right:-0;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2.5px 5px;
+    font-size: 6px;
+    font-weight: bold;
+  }
+
+  .return-button {
+    background-color: #3a0606;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .return-button:hover {
+    background-color: var(--primary-color);
+  }
+
+  .user-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-left: 5px solid var(--primary-color);
+    margin-bottom: 1rem;
+  }
+
+  .team-members h3,
+  .alert-container h3 {
+    color: #cccccc; /* Light grey color for dark background */
+    margin-bottom: 20px; /* Space below the heading */
+    font-weight: bold; /* Bold text */
+    border-bottom: 2px solid #444444; /* Dark border for separation */
+    padding-bottom: 10px; /* Space below the text */
+  }

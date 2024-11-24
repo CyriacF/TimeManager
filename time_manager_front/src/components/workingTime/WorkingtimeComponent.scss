@@ -1,0 +1,271 @@
+@import '../../library';
+.widget {
+    position: relative;
+    background: rgba($SECONDARY_COLOR, 0.5);
+    border-radius: $BORDER_RADIUS_L;
+    padding:  0 $PADDING_S;
+    max-width: 100%;
+  }
+.return-button {
+  background-color: #3a0606;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.return-button:hover {
+  background-color: var(--primary-color);
+}
+.team-members {
+    display: flex;
+
+  align-content: center;
+  align-items: center;
+  text-align: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  h3{
+    margin: 0 !important;
+  }
+  }
+
+.vuecal__event.holiday {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.team-member-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 140px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+.team-member-card p {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .add-event-form {
+    background-color: rgba(0, 0, 0, 0.8); /* Fond sombre pour contraste */
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .add-event-form label {
+    display: block;
+    color: #fff; /* Texte blanc */
+    margin-bottom: 0.5rem;
+  }
+  
+  .add-event-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff; /* Fond clair pour contraste */
+    color: #000; /* Texte noir */
+  }
+  
+  .add-event-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-event-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styles pour les boutons et le texte */
+  .btn {
+    background-color: var(--surface-ground); /* Fond noir */
+    color: #fff; /* Texte blanc */
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0.5rem 0;
+  }
+  
+  .btn-back {
+    background-color: #333; /* Fond gris foncé pour différencier */
+  }
+  
+  .btn-add-event {
+    background-color: var(--surface-ground); /* Fond noir */
+    font-weight: bold; /* Texte en gras */
+    margin-bottom: 1rem; /* Espace en bas */
+  }
+  
+  .btn:hover {
+    background-color: #555; /* Fond gris clair au survol */
+  }
+  
+  .highlight-text {
+    font-size: 1.5rem; /* Taille de police plus grande */
+    font-weight: bold; /* Texte en gras */
+    color: #fff; /* Texte blanc */
+    margin-bottom: 1rem; /* Espace en bas */
+  }
+  
+  /* Styles pour les citations */
+  .user-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-left: 5px solid var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  .team-members h3 {
+    color: #cccccc; /* Light grey color for dark background */
+    margin-bottom: 20px; /* Space below the heading */
+    font-weight: bold; /* Bold text */
+    border-bottom: 2px solid #444444; /* Dark border for separation */
+    padding-bottom: 10px; /* Space below the text */
+  }
+
+  .calendar{
+    background: var(--surface-card);
+    padding: 0.5rem;
+    height: 100%;
+    border-radius: var(--content-border-radius);
+    cursor: default;
+  }
+  
+  .vuecal__event.pointage {
+    background-color: var(--p-primary-color);
+    border: 1px solid rgb(235, 82, 82);
+    color: #fff;
+    border-radius: var(--content-border-radius);
+  }
+  .weekday-label {
+    color: var(--primary-color);
+  }
+  .vuecal__title {
+    color: var(--p-text-muted-color);
+    background: var(--surface-ground);
+  }
+  .vuecal__arrow {
+    padding: 0 0.5rem 0 0.5rem;
+    color: var(--p-text-muted-color);
+    background: var(--surface-ground);
+    border-radius: var(--content-border-radius);
+  }
+  .vuecal__cell--selected {
+    background: var(--p-primary-color);
+    .vuecal__cell-content {
+      color: black;
+    }
+  }
+  .vuecal__cell--today {
+    background: rgba(38, 192, 109, 0.32);
+    .vuecal__cell-content {
+      color: white;
+    }
+  }
+  .vuecal__cell--current{
+    background: rgba(38, 192, 109, 0.32);
+  
+  }
+  .vuecal__cell-content {
+    color: white;
+  }
+  
+  .CP {
+    background-color: rgba(255, 102, 102, 0.35);
+    border: solid rgba(255, 102, 102, 0.5);
+    border-width: 2px 0;
+    color: #fff;
+  }
+  
+  .CPSUP {
+    background-color: rgba(102, 255, 102, 0.35);
+    border: solid rgba(102, 255, 102, 0.5);
+    border-width: 2px 0;
+    color: #000;
+  }
+  
+  .CPSUPAPP {
+    background-color: rgba(102, 178, 255, 0.35);
+    border: solid rgba(102, 178, 255, 0.5);
+    border-width: 2px 0;
+    color: #000;
+  }
+  
+  .ABEventFamily {
+    background-color: rgba(255, 204, 102, 0.35);
+    border: solid rgba(255, 204, 102, 0.5);
+    border-width: 2px 0;
+    color: #000;
+  }
+  
+  .CParental {
+    background-color: rgba(178, 102, 255, 0.35);
+    border: solid rgba(178, 102, 255, 0.5);
+    border-width: 2px 0;
+    color: #fff;
+  }
+  
+  .MAT {
+    background-color: rgba(255, 182, 193, 0.35);
+    border: solid rgba(255, 182, 193, 0.5);
+    border-width: 2px 0;
+    color: #000;
+  }
+  
+  .PAT {
+    background-color: rgba(102, 255, 255, 0.35);
+    border: solid rgba(102, 255, 255, 0.5);
+    border-width: 2px 0;
+    color: #000;
+  }
+  
+  .AcciTrav {
+    background-color: rgba(255, 140, 0, 0.35);
+    border: solid rgba(255, 140, 0, 0.5);
+    border-width: 2px 0;
+    color: #000;
+  }
+  
+  .Maladie {
+    background-color: rgba(192, 192, 192, 0.35);
+    border: solid rgba(192, 192, 192, 0.5);
+    border-width: 2px 0;
+    color: #000;
+  }
+  
+  .CSS {
+    background-color: rgba(64, 64, 64, 0.35);
+    border: solid rgba(64, 64, 64, 0.5);
+    border-width: 2px 0;
+    color: #fff;
+  }
+  
+  .Travail {
+    background-color: rgba(255, 255, 153, 0.35);
+    border: solid rgba(255, 255, 153, 0.5);
+    border-width: 2px 0;
+    color: #000;
+  }
+  
+  
+  

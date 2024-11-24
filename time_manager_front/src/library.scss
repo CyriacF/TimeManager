@@ -1,0 +1,83 @@
+
+$PRIMARY_COLOR: #f5f5f5;
+$SECONDARY_COLOR: #E9EBEF;
+$TERTIARY_COLOR: #f3f3f3;
+$FOURTH_COLOR: #a8a8a8;
+$FIFTH_COLOR: #666;
+$SIXTH_COLOR: #999;
+$SEVENTH_COLOR: #ccc;
+$EIGHTH_COLOR: #e6e6e6;
+$SUCCESS_COLOR: #25C06D;
+$FAIL_COLOR: #FF5147;
+$BACKGROUND_COLOR: #D8DCE3;
+
+//Font
+$FONT_SIZE_XS: 0.75rem;
+$FONT_SIZE_S: 1rem;
+$FONT_SIZE_M: 1.25rem;
+$FONT_SIZE_L: 1.5rem;
+$FONT_SIZE_XL: 2rem;
+
+
+//Spacing
+$BORDER_RADIUS_XS: 1.25px;
+$BORDER_RADIUS_S: 5px;
+$BORDER_RADIUS_M: 10px;
+$BORDER_RADIUS_L: 20px;
+$BORDER_RADIUS_XL: 30px;
+
+$PADDING_XS: 0.5rem;
+$PADDING_S: 1rem;
+$PADDING_M: 1.5rem;
+$PADDING_L: 3rem;
+$PADDING_XL: 4rem;
+
+$MARGIN_XS: 0.5rem;
+$MARGIN_S: 1rem;
+$MARGIN_M: 2rem;
+$MARGIN_L: 3rem;
+
+//Button
+
+$BUTTON_SMALL_SIZE: 2.1rem;
+$BUTTON_MEDIUM_SIZE: 3rem;
+$BUTTON_LARGE_SIZE: 4rem;
+
+//responsive
+$RESPONSIVE_MOBILE: 768px;
+$RESPONSIVE_TABLET: 1024px;
+$RESPONSIVE_LAPTOP: 1200px;
+$RESPONSIVE_DESKTOP: 1440px;
+
+//thumbnail
+
+$THUMBNAIL_WIDTH: 23rem;
+$THUMBNAIL_HEIGHT: 17rem;
+@media (max-width: 1024px) {
+  $THUMBNAIL_WIDTH: 13rem;
+  $THUMBNAIL_HEIGHT: 7rem;
+}
+@media (max-width: $RESPONSIVE_MOBILE) {
+  $PADDING_XS: 0.25rem;
+  $PADDING_S: 0.5rem;
+  $PADDING_M: 1rem;
+  $PADDING_L: 1.5rem;
+  $PADDING_XL: 2rem;
+
+  $MARGIN_XS: 0.25rem;
+  $MARGIN_S: 0.5rem;
+  $MARGIN_M: 1rem;
+  $MARGIN_L: 1.5rem;
+
+  $THUMBNAIL_WIDTH: 1rem;
+  $THUMBNAIL_HEIGHT: 4rem;
+}
+@media (prefers-color-scheme: dark){
+  $BACKGROUND_COLOR: #000000;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: $FOURTH_COLOR;
+}
